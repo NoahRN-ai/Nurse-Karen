@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nurse Karen - Compliance Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="compliance-score">Compliance: 100</div>
+    <div id="chat-container">
+      <div id="chat-log">
+        <!-- My avatar and initial greeting will go here later -->
+      </div>
+      <form id="input-form">
+        <input type="text" id="user-input" placeholder="Speak now, and be brief...">
+        <button type="submit" id="demand-assistance-btn">Demand Assistance</button>
+      </form>
+      <button id="show-grievance-form-btn">File a Formal Grievance</button>
+      <button id="notify-ken-btn" style="display: none;">NOTIFY KEN</button>
+      <!-- New button added here -->
+    </div>
+    <div id="official-notifications">
+      <!-- Official notices and grievances will appear here -->
+    </div>
+    <div id="grievance-modal" style="display: none;">
+      <h2>File a Formal Grievance</h2>
+      <textarea id="grievance-text" placeholder="State your trivial complaint here..."></textarea>
+      <button id="submit-grievance-btn">Submit Grievance to a Higher Authority</button>
+      <button id="cancel-grievance-btn">Actually, Never Mind</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
