@@ -1,0 +1,263 @@
+:root {
+  --authoritarian-charcoal: #333333;
+  --complaint-form-beige: #F5F5DC;
+  --my-response-bg: #EAEAEA;
+  --user-input-bg: #FFFFFF;
+  --alarm-red: #FF0000;
+  --compliance-green: #228B22;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  background-color: var(--complaint-form-beige);
+  font-family: 'Arial', sans-serif;
+}
+
+.karen-message {
+  font-family: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+  background-color: var(--my-response-bg);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--authoritarian-charcoal);
+}
+
+.user-message {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--user-input-bg);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  text-align: right;
+}
+
+#compliance-score {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  background-color: var(--authoritarian-charcoal);
+  color: white;
+  font-weight: bold;
+  border: 2px solid var(--compliance-green); /* Initial green border */
+  font-family: 'Arial', sans-serif;
+}
+
+#chat-container {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: var(--user-input-bg);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  font-family: 'Arial', sans-serif;
+}
+
+#chat-log {
+  height: 400px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  font-family: 'Arial', sans-serif;
+}
+
+#input-form {
+  display: flex;
+  font-family: 'Arial', sans-serif;
+}
+
+#user-input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-family: 'Arial', sans-serif;
+}
+
+#demand-assistance-btn {
+  padding: 10px 15px;
+  background-color: var(--authoritarian-charcoal);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-family: 'Arial', sans-serif;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+#demand-assistance-btn:hover {
+  box-shadow: 0 0 10px 5px var(--authoritarian-charcoal); /* Glowing effect */
+}
+
+#official-notifications {
+  margin-top: 20px;
+  padding: 15px;
+  border: 2px dotted var(--authoritarian-charcoal);
+  background-color: var(--complaint-form-beige);
+  min-height: 50px;
+  font-family: 'Arial', sans-serif;
+}
+
+#grievance-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 30px;
+  border: 2px solid var(--authoritarian-charcoal);
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  z-index: 1000;
+  width: 400px;
+  font-family: 'Arial', sans-serif;
+}
+
+#grievance-modal h2 {
+  margin-top: 0;
+  color: var(--authoritarian-charcoal);
+  font-family: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+}
+
+#grievance-modal textarea {
+  width: calc(100% - 20px);
+  height: 100px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-family: 'Arial', sans-serif;
+}
+
+#grievance-modal button {
+  padding: 10px 15px;
+  margin-right: 10px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Arial', sans-serif;
+}
+
+#submit-grievance-btn {
+  background-color: var(--authoritarian-charcoal);
+  color: white;
+}
+
+#cancel-grievance-btn {
+  background-color: #ccc;
+}
+
+.karen-avatar-placeholder {
+  width: 50px;
+  height: 50px;
+  background-color: var(--authoritarian-charcoal);
+  margin-right: 10px;
+  /* More styling later for speech bubble */
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%); /* Basic sharp speech bubble */
+}
+
+#show-grievance-form-btn {
+    padding: 10px 15px;
+    background-color: var(--authoritarian-charcoal); /* Or a different color, e.g., #c00000 for a 'warning' feel */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    margin-top: 10px; /* Add some space */
+    display: block; /* Make it block to take full width available or center it if chat-container has text-align: center */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#show-grievance-form-btn:hover {
+    opacity: 0.8;
+}
+
+#notify-ken-btn {
+    background-color: var(--alarm-red); /* #FF0000 */
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid var(--authoritarian-charcoal);
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    font-family: 'Arial', sans-serif; /* Consistent font */
+    display: block; /* Or inline-block if preferred, block with auto margins for centering */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#notify-ken-btn:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
+
+.ken-warning-message { /* Class for the warning message in notifications */
+    color: var(--alarm-red);
+    font-weight: bold;
+    padding: 10px;
+    border: 1px dashed var(--alarm-red);
+    margin-top: 5px;
+    background-color: #fff0f0; /* Light pink background for emphasis */
+}
+
+#trigger-evidence-upload-btn {
+    padding: 10px 15px;
+    background-color: #555; /* A neutral, serious color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    margin-top: 10px; /* Adjusted to 0 as container div will handle spacing if needed */
+    margin-left: 5px; /* Spacing between buttons */
+    margin-right: 5px; /* Spacing between buttons */
+    /* display: block; Remove this if buttons are to be inline-block within the container */
+}
+
+#trigger-evidence-upload-btn:hover {
+    background-color: #333;
+}
+
+/* Adjusting existing buttons to be inline-block for better layout in the new container */
+#show-grievance-form-btn, #notify-ken-btn {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    vertical-align: top; /* Align buttons nicely if they have different text/padding */
+}
+/* Ensure the main chat button also aligns if it were in this group */
+#demand-assistance-btn {
+    /* display: inline-block; /* This is part of a flex form, so keep as is */
+}
+
+#manager-minigame-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px; /* Or appropriate width */
+    background-color: var(--complaint-form-beige);
+    padding: 25px;
+    border: 2px solid var(--authoritarian-charcoal);
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    z-index: 2000; /* Ensure it's on top */
+    text-align: center;
+}
+
+#manager-minigame-modal h2 {
+    color: var(--authoritarian-charcoal);
+    font-family: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+    margin-top: 0; /* Remove default margin if any */
+}
+
+#manager-minigame-modal p {
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 15px;
+}
+
+#submit-transcription-btn {
+    padding: 10px 15px;
+    background-color: var(--authoritarian-charcoal);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+}
+#submit-transcription-btn:hover {
+    opacity: 0.8;
+}
