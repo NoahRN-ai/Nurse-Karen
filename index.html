@@ -16,13 +16,36 @@
         <input type="text" id="user-input" placeholder="Speak now, and be brief...">
         <button type="submit" id="demand-assistance-btn">Demand Assistance</button>
       </form>
+
+      <div id="action-buttons-container" style="text-align: center; margin-top: 10px;">
+        <button id="show-grievance-form-btn">File a Formal Grievance</button>
+        <button id="trigger-evidence-upload-btn">Submit Evidence</button>
+        <input type="file" id="evidence-upload" accept="image/*" style="display: none;">
+        <button id="notify-ken-btn" style="display: none;">NOTIFY KEN</button>
+      </div>
+      <!-- New button and input added here, container for layout -->
+=======
       <button id="show-grievance-form-btn">File a Formal Grievance</button>
       <button id="notify-ken-btn" style="display: none;">NOTIFY KEN</button>
       <!-- New button added here -->
+
     </div>
     <div id="official-notifications">
       <!-- Official notices and grievances will appear here -->
     </div>
+
+
+    <div id="manager-minigame-modal" style="display: none;">
+        <h2>Managerial Complaint Simulation Protocol</h2>
+        <p>To proceed with your escalation, please accurately transcribe the following policy statement within the allotted time. Precision is paramount.</p>
+        <div id="passage-to-type" style="background-color: #f0f0f0; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; white-space: pre-wrap; font-family: monospace;">In order to synergize our client-facing paradigms, all escalations must align with our core competency of proactive de-escalation, leveraging stakeholder-centric feedback loops to actualize a win-win operational framework going forward.</div>
+        <textarea id="typing-challenge-input" rows="5" style="width: 95%; margin-bottom: 10px; font-family: monospace;"></textarea>
+        <div id="timer-display" style="font-weight: bold; margin-bottom: 10px;">Time left: 20s</div>
+        <button id="submit-transcription-btn">Submit Transcription</button>
+    </div>
+
+=======
+
     <div id="grievance-modal" style="display: none;">
       <h2>File a Formal Grievance</h2>
       <textarea id="grievance-text" placeholder="State your trivial complaint here..."></textarea>

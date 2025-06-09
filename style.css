@@ -195,3 +195,72 @@ body {
     margin-top: 5px;
     background-color: #fff0f0; /* Light pink background for emphasis */
 }
+
+
+#trigger-evidence-upload-btn {
+    padding: 10px 15px;
+    background-color: #555; /* A neutral, serious color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    margin-top: 10px; /* Adjusted to 0 as container div will handle spacing if needed */
+    margin-left: 5px; /* Spacing between buttons */
+    margin-right: 5px; /* Spacing between buttons */
+    /* display: block; Remove this if buttons are to be inline-block within the container */
+}
+
+#trigger-evidence-upload-btn:hover {
+    background-color: #333;
+}
+
+/* Adjusting existing buttons to be inline-block for better layout in the new container */
+#show-grievance-form-btn, #notify-ken-btn {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    vertical-align: top; /* Align buttons nicely if they have different text/padding */
+}
+/* Ensure the main chat button also aligns if it were in this group */
+#demand-assistance-btn {
+    /* display: inline-block; This is part of a flex form, so keep as is */
+}
+
+#manager-minigame-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px; /* Or appropriate width */
+    background-color: var(--complaint-form-beige);
+    padding: 25px;
+    border: 2px solid var(--authoritarian-charcoal);
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    z-index: 2000; /* Ensure it's on top */
+    text-align: center;
+}
+
+#manager-minigame-modal h2 {
+    color: var(--authoritarian-charcoal);
+    font-family: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+    margin-top: 0; /* Remove default margin if any */
+}
+
+#manager-minigame-modal p {
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 15px;
+}
+
+#submit-transcription-btn {
+    padding: 10px 15px;
+    background-color: var(--authoritarian-charcoal);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+}
+#submit-transcription-btn:hover {
+    opacity: 0.8;
+}
+=======
+
