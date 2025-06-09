@@ -31,6 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let gameTimer;
     let timeLeft;
     let passageToType = ""; // Will be set once DOM is loaded
+=======
+
+    const insubordinationKeywords = ['wait', 'complaint', 'unfair', 'help', 'manager', 'rude', 'wrong'];
+    let karenMentionCount = 0;
+    let chatHistory = [];
 
     // Initial greeting from Nurse Karen
     // Moved from placeholder comment to actual implementation for Task 6 (My Persona)
@@ -97,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return; // Prevent further processing as a normal message
         }
 
+
         // Detect /citepolicy [topic] command
         const citePolicyMatch = userMessageText.trim().toLowerCase().match(/^\/citepolicy\s+(?:about\s+)?(.+)/);
         if (citePolicyMatch) {
@@ -123,6 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+
         // Add user message to chat history BEFORE displaying it (or just after getting text)
         chatHistory.push({ speaker: "User", text: userMessageText, timestamp: new Date().toISOString() });
 
@@ -143,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chatLog.appendChild(userMessageDiv);
         chatLog.scrollTop = chatLog.scrollHeight; // Scroll after user message
 
+
         // Check for insubordination
         const lowerUserMessage = userMessageText.toLowerCase();
         let keywordFoundThisMessage = false; // Flag for single deduction per message
@@ -157,6 +165,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 // break; // Decided to remove the break to penalize for *each* keyword if multiple are present in one message. Or keep break if only one penalty per message.
                 // For maximum Karen strictness, let's remove the break. Each keyword is an offense!
+=======
+        // Check for insubordination (remains unchanged)
+        const lowerUserMessage = userMessageText.toLowerCase();
+        for (const keyword of insubordinationKeywords) {
+            if (lowerUserMessage.includes(keyword)) {
+                console.warn('Insubordination tendency logged for user input: "' + userMessageText + '" at ' + new Date().toISOString());
+                // TODO: This is where compliance score would be affected in Task 7
+                break;
+
             }
         }
 
@@ -165,6 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Get My AI-powered response (simulated)
         try {
             const response = await getAiResponse(userMessageText); // Use await here
+
 
             // Use the new helper function to add Karen's message to chat
             addKarenMessageToChat(response.aiResponse, response.sentimentScore < -0.2);
@@ -189,6 +207,40 @@ document.addEventListener('DOMContentLoaded', () => {
             // Use the helper for this too, without prefix
             addKarenMessageToChat("There seems to be a system malfunction. Try again later, and don't be difficult.", false);
             chatHistory.push({ speaker: "Nurse Karen", text: "There seems to be a system malfunction. Try again later, and don't be difficult.", timestamp: new Date().toISOString() });
+
+            const karenMessageDiv = document.createElement('div');
+            karenMessageDiv.classList.add('karen-message');
+
+            const responseAvatar = document.createElement('div');
+            responseAvatar.classList.add('karen-avatar-placeholder');
+            karenMessageDiv.appendChild(responseAvatar);
+
+            const responseTextSpan = document.createElement('span'); // Use a span for text
+            let finalResponseText = response.aiResponse;
+            if (response.sentimentScore < -0.2) {
+                finalResponseText = "(LOGGED FOR REVIEW) " + finalResponseText;
+            }
+            responseTextSpan.textContent = finalResponseText;
+            karenMessageDiv.appendChild(responseTextSpan);
+
+            chatLog.appendChild(karenMessageDiv);
+            // Add Nurse Karen's response to chat history
+            chatHistory.push({ speaker: "Nurse Karen", text: finalResponseText, timestamp: new Date().toISOString() });
+            chatLog.scrollTop = chatLog.scrollHeight; // Scroll after my message
+        } catch (error) {
+            console.error("Error getting AI response:", error);
+            // Fallback to a very generic error message for Karen if the AI fails
+            const karenErrorDiv = document.createElement('div');
+            karenErrorDiv.classList.add('karen-message');
+            const errorAvatar = document.createElement('div');
+            errorAvatar.classList.add('karen-avatar-placeholder');
+            karenErrorDiv.appendChild(errorAvatar);
+            const errorText = document.createElement('span');
+            errorText.textContent = "There seems to be a system malfunction. Try again later, and don't be difficult.";
+            karenErrorDiv.appendChild(errorText);
+            chatLog.appendChild(karenErrorDiv);
+            chatLog.scrollTop = chatLog.scrollHeight;
+
         }
     });
 
@@ -229,6 +281,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.log(`Compliance score decreased by 15 for filing a grievance. New score: ${complianceScore}`);
                     updateComplianceDisplay();
                 }
+
+=======
 
                 grievanceText.value = '';
                 grievanceModal.style.display = 'none';
@@ -293,6 +347,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("Client-side report generated and displayed.");
         // console.log("Report content (chatHistory object) that would be sent to backend:", chatHistory);
     }
+
 
     // Helper function to add user messages to chat log
     function addUserMessageToChat(messageText) {
@@ -588,3 +643,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // I will create a new diff block that specifically targets that modification.
 // This is to ensure the primary task's new features (evidence upload) are clearly separated
 // from the refactoring of existing code, even though they are related.
+=======
+});
+

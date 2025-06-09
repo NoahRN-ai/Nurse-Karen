@@ -196,6 +196,7 @@ body {
     background-color: #fff0f0; /* Light pink background for emphasis */
 }
 
+
 #trigger-evidence-upload-btn {
     padding: 10px 15px;
     background-color: #555; /* A neutral, serious color */
@@ -261,3 +262,5 @@ body {
 #submit-transcription-btn:hover {
     opacity: 0.8;
 }
+=======
+
