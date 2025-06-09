@@ -223,7 +223,7 @@ body {
 }
 /* Ensure the main chat button also aligns if it were in this group */
 #demand-assistance-btn {
-    /* display: inline-block; /* This is part of a flex form, so keep as is */
+    /* display: inline-block; This is part of a flex form, so keep as is */
 }
 
 #manager-minigame-modal {
